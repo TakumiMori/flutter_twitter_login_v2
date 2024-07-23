@@ -37,6 +37,7 @@ class TwitterLoginV2 {
       authorizationCode: authorizationCode.code,
       codeVerifier: authorizationCode.codeVerifier,
       redirectURI: redirectURI,
+      forceLogin: forceLogin,
     );
   }
 }
