@@ -28,6 +28,7 @@ class AccessTokenV2 {
     required String authorizationCode,
     required String codeVerifier,
     required String redirectURI,
+    bool? forceLogin,
   }) async {
     final body = {
       "grant_type": "authorization_code",
@@ -35,6 +36,7 @@ class AccessTokenV2 {
       "code": authorizationCode,
       "redirect_uri": redirectURI,
       "code_verifier": codeVerifier,
+      if(forceLogin == true) "force_login": "true",
     };
     final params = await httpPost(
       ACCESS_TOKEN_URI,
